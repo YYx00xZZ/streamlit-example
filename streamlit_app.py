@@ -36,3 +36,13 @@ with st.echo(code_location='below'):
     st.altair_chart(alt.Chart(pd.DataFrame(data), height=500, width=500)
         .mark_circle(color='#0068c9', opacity=0.5)
         .encode(x='x:Q', y='y:Q'))
+# import streamlit as st
+import os
+
+def file_selector(folder_path='./data'):
+    filenames = os.listdir(folder_path)
+    selected_filename = st.selectbox('Select a file', filenames)
+    return os.path.join(folder_path, selected_filename)
+
+filename = file_selector()
+st.write('You selected `%s`' % filename)
