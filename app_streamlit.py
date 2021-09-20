@@ -301,7 +301,7 @@ def main():
 	# ml app
 	""")
 
-	st.code("a da vidim")
+	# st.code("a da vidim")
 
 	# ---------------------------------#
 	# Sidebar - Collects user input features into dataframe
