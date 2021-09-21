@@ -11,14 +11,14 @@ def main():
 	with st.sidebar.header('1. Upload your CSV data'):
 		# Select alg
 		# classifier = st.sidebar.selectbox("Select model", ("---", "Random Forest", "KNN"))
-		# print(classifier)
+		# st.write(classifier)
 		uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["csv", "xlsx"])
 		# if uploaded_file is not None:
 		load_saved_file = save_uploadedfile(uploaded_file) if uploaded_file is not None else st.info(
 			'upload file first')
-		print(load_saved_file)
-		print(type(load_saved_file))
-		# print(dir(load_saved_file))
+		st.write(load_saved_file)
+		st.write(type(load_saved_file))
+		# st.write(dir(load_saved_file))
 	# if 'uploaded_file_path' not in st.session_state & :
 	# st.session_state['uploaded_file_path'] = load_saved_file
 
@@ -60,9 +60,9 @@ def save_uploadedfile(uploadedfile):
 	dname = os.path.join(dname, "tempDir")
 	# os.mkdir (dname)
 
-	print(Path(dname).mkdir(parents=True, exist_ok=True))
-	print(dname)
-	print(os.getcwd())
+	st.write(Path(dname).mkdir(parents=True, exist_ok=True))
+	st.write(dname)
+	st.write(os.getcwd())
 	with open(os.path.join(dname, uploadedfile.name), "wb") as f:
 		f.write(uploadedfile.getbuffer())
 	return os.path.join(dname, uploadedfile.name)
